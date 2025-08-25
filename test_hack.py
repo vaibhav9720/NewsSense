@@ -4,7 +4,7 @@ import re
 import json
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
-
+AVILY_API_KEY= "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"
 import pandas as pd
 from openai import OpenAI
 from langchain.tools.tavily_search import TavilySearchResults
