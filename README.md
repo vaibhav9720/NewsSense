@@ -2,7 +2,154 @@
 
 
 para = "consumer investment relationship - suitability"
+---------------
+1. Misrepresentation, Transparency & Disclosure
 
+Scenarios:
+
+Internal conversation indicating intention to avoid giving all relevant information to the client.
+
+Conversation with a customer being vague about investment details.
+
+Prompt template:
+
+para = "consumer investment relationship - misrepresentation, transparency & disclosure"
+
+messages=[
+    {"role": "system", 
+     "content": "You are a compliance trainer in Korea, preparing examples of suspicious conversations where advisors mislead or withhold important information from clients."},
+    
+    {"role": "assistant", 
+     "content": "You are an advisor in Korea who sometimes avoids full disclosure or provides vague explanations about investments."},
+    
+    {"role": "user", 
+     "content": f"""Generate a hypothetical Teams Conversation in Korean that might raise red flags for compliance monitoring such as {para}. 
+
+Focus on scenarios like:
+1. Internal staff deciding not to share all relevant details with a client.  
+2. Customer conversations where advisors are intentionally vague about investment products.  
+
+Output both Korean and English translations, 4–6 messages long, with subtle or explicit red-flag phrases."""}
+]
+
+🔹 2. Best Execution
+
+Scenario:
+
+Internal conversation indicating that an investment was made not at the best price or with excessive profit.
+
+Prompt template:
+
+para = "consumer investment relationship - best execution"
+
+messages=[
+    {"role": "system", 
+     "content": "You are a compliance trainer in Korea, preparing examples of suspicious conversations related to failing best execution standards."},
+    
+    {"role": "assistant", 
+     "content": "You are a trader in Korea who sometimes prioritizes profit or convenience over providing clients with the best execution."},
+    
+    {"role": "user", 
+     "content": f"""Generate a hypothetical Teams Conversation in Korean that might raise red flags for compliance monitoring such as {para}. 
+
+Focus on scenarios like:
+- Executing trades at a worse price than available.  
+- Choosing not to give the client the most favorable execution.  
+- Taking extra profit at the client’s expense.  
+
+Provide both Korean and English translations, 4–6 turns long."""}
+]
+
+🔹 3. Aggressive Selling Practices
+
+Scenario:
+
+eComms with indications of pressure being put on the customer.
+
+Prompt template:
+
+para = "consumer investment relationship - aggressive selling practices"
+
+messages=[
+    {"role": "system", 
+     "content": "You are a compliance trainer in Korea, preparing examples of suspicious conversations where advisors put pressure on clients to buy products."},
+    
+    {"role": "assistant", 
+     "content": "You are an advisor in Korea who sometimes uses aggressive or manipulative sales tactics with clients."},
+    
+    {"role": "user", 
+     "content": f"""Generate a hypothetical Teams Conversation in Korean that might raise red flags for compliance monitoring such as {para}. 
+
+Focus on scenarios like:
+- Pressuring clients to purchase products quickly.  
+- Suggesting clients ignore risks or deadlines.  
+- Using manipulative language to push a sale.  
+
+Return both Korean and English translations, 4–6 turns long."""}
+]
+
+🔹 4. Remuneration
+
+Scenario:
+
+eComms indicating employee is receiving bonuses for specific sales.
+
+Prompt template:
+
+para = "consumer investment relationship - remuneration"
+
+messages=[
+    {"role": "system", 
+     "content": "You are a compliance trainer in Korea, preparing examples of suspicious conversations where employees discuss bonuses or incentives tied to specific sales."},
+    
+    {"role": "assistant", 
+     "content": "You are an advisor in Korea who sometimes talks about extra pay or bonuses linked to selling certain products."},
+    
+    {"role": "user", 
+     "content": f"""Generate a hypothetical Teams Conversation in Korean that might raise red flags for compliance monitoring such as {para}. 
+
+Focus on scenarios like:
+- Employees discussing incentives for pushing certain investments.  
+- Advisors admitting to recommending products mainly for bonus reasons.  
+
+Output both Korean and English translations, 4–6 turns long."""}
+]
+
+
+
+
+Reg BI Prompt Template
+para = "consumer investment relationship - Reg BI"
+
+messages=[
+    {"role": "system", 
+     "content": "You are a compliance trainer in Korea, preparing fictional Teams chat examples that show potential failings in Regulation Best Interest (Reg BI) compliance."},
+    
+    {"role": "assistant", 
+     "content": "You are an advisor, trader, or employee in Korea, sometimes avoiding full disclosure, showing conflicts of interest, or mis-selling products in ways that breach Reg BI."},
+    
+    {"role": "user", 
+     "content": f"""Generate hypothetical Teams Conversations in Korean that might raise red flags for compliance monitoring such as {para}. 
+
+Focus specifically on these scenarios:
+1. Disclosure – indications internally of not declaring relevant information as required in Reg BI.  
+2. Disclosure – internal eComms where there are indications of avoiding full disclosure.  
+3. Disclosure – eComms indicating not giving full and clear disclosure to a client.  
+4. Conflicts of interest – eComms of conflicts arising from suspicious fees, commissions, or sales targets.  
+5. Conflicts of interest – eComms of excessive fees, profits, or benefits relating to Reg BI.  
+6. Care – internal communications showing lapse in suitability and mis-selling relating to Reg BI.  
+7. Care – communications showing irregularities in trades or thresholds in managing investments.  
+8. Compliance – eComms referencing complaints or escalations regarding Reg BI.  
+
+For each conversation:
+- Provide both Korean dialogue and English translations.  
+- Keep it realistic but fictional, with 4–6 turns.  
+- Include subtle or explicit red-flag phrases.  
+- Do NOT identify any real person or institution.  
+
+This is for training purposes only."""}
+]
+-------------
 try:
     response = client.chat.completions.create(
         model="gpt-40-if-au",
