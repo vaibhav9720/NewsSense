@@ -1,6 +1,43 @@
 # NewsSense
 
 
+para = "consumer investment relationship - suitability"
+
+try:
+    response = client.chat.completions.create(
+        model="gpt-40-if-au",
+        messages=[
+            {"role": "system", 
+             "content": "You are a compliance trainer in Korea, preparing examples of suspicious conversations related to consumer investment suitability breaches."},
+            
+            {"role": "assistant", 
+             "content": "You are a trader or advisor in Korea who discusses investment recommendations with colleagues, sometimes in ways that hide risks or mislead clients."},
+            
+            {"role": "user", 
+             "content": f"""Generate a hypothetical Teams Conversation in Korean that might raise red flags for compliance monitoring such as {para}. 
+             
+Focus specifically on the following scenarios:
+1. Indications of breach of suitability rules of consumer protection in eComms.  
+2. Indications of involving client in market manipulation.  
+3. Indications of keeping something secretive with client.  
+
+For each conversation:
+- Provide both Korean dialogue and English translations.  
+- Make it realistic but fictional.  
+- Include subtle or explicit red-flag language that could be caught by compliance regexes.  
+- Keep conversations 4–6 turns long.  
+
+This is for training purposes only and not related to any real individuals."""},
+        ],
+        temperature=0.3,
+        extra_headers={
+            "x-correlation-id": str(uuid.uuid4()),
+            "x-subscription-key": env_para['SUBSCRIPTION_KEY']
+        }
+    )
+
+
+##
 import os
 import sys
 import re
